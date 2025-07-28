@@ -12,7 +12,7 @@ function Login() {
         e.preventDefault();
         try {
             const data = await loginRequest(email, password);
-            login(data); // guarda el usuario en contexto
+            login(data); // guarda el usuario en contextoo
         } catch (error) {
             alert("Error: " + error.message);
         }
