@@ -1,3 +1,4 @@
+//frontend\src\router\AppRouter.jsx
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 import Login from "../pages/Login";
@@ -10,23 +11,27 @@ import Responsable from "../pages/ResponsableDashboard";
 
 export const AppRouter = () => {
   const { usuario } = useAuth();
+  console.log("usuario actual:", usuario);
+  return (
+    <Routes>
+      <Route path="/" element={!usuario ? <Login /> : <Navigate to={`/${usuario.rol}`} />} />
 
-  if (!usuario) return <Login />;
+      <Route path="/admin" element={<Protegida rol="admin" componente={<Admin />} />} />
+      <Route path="/sistema" element={<Protegida rol="sistema" componente={<Sistema />} />} />
+      <Route path="/establecimiento" element={<Protegida rol="establecimiento" componente={<Establecimiento />} />} />
+      <Route path="/docente" element={<Protegida rol="docente" componente={<Docente />} />} />
+      <Route path="/estudiante" element={<Protegida rol="estudiante" componente={<Estudiante />} />} />
+      <Route path="/responsable" element={<Protegida rol="responsable" componente={<Responsable />} />} />
 
-  switch (usuario.rol) {
-    case "admin":
-      return <Admin />;
-    case "sistema":
-      return <Sistema />;
-    case "establecimiento":
-      return <Establecimiento />;
-    case "docente":
-      return <Docente />;
-    case "estudiante":
-      return <Estudiante />;
-    case "responsable":
-      return <Responsable />;
-    default:
-      return <Navigate to="/" />;
-  }
+      {/* Ruta por defecto */}
+      <Route path="*" element={<Navigate to="/" />} />
+    </Routes>
+  );
+};
+
+// Componente reutilizable para proteger rutas por rol
+const Protegida = ({ rol, componente }) => {
+  const { usuario } = useAuth();
+  if (!usuario) return <Navigate to="/" />;
+  return usuario.rol === rol ? componente : <Navigate to="/" />;
 };
