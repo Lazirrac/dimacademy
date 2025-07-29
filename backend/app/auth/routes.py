@@ -1,5 +1,6 @@
+#backend\app\auth\routes.py
 from flask import Blueprint, request, jsonify
-from flask_login import login_user, logout_user
+from flask_login import login_user, logout_user, login_required
 from app.models.usuarios_sistema import UsuarioSistema
 from app import bcrypt
 
@@ -8,6 +9,10 @@ auth_bp = Blueprint("auth", __name__, url_prefix="/auth")
 @auth_bp.route("/login", methods=["POST"])
 def login():
     data = request.get_json()
+
+    if not data or "email" not in data or "password" not in data:
+        return jsonify({"error": "Email y contraseña requeridos"}), 400
+
     user = UsuarioSistema.query.filter_by(email=data["email"]).first()
 
     if user and bcrypt.check_password_hash(user.contrasena_hash, data["password"]):
@@ -20,8 +25,8 @@ def login():
 
     return jsonify({"error": "Credenciales inválidas"}), 401
 
-
 @auth_bp.route("/logout", methods=["POST"])
+@login_required
 def logout():
     logout_user()
     return jsonify({"mensaje": "Sesión cerrada"})

@@ -1,3 +1,4 @@
+#backend\app\models\usuarios_sistema.py
 from app import db
 from flask_login import UserMixin
 from datetime import datetime

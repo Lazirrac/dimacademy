@@ -1,4 +1,4 @@
-# app/responsables/routes.py
+# backend\app\responsables\routes.py
 from flask import Blueprint, jsonify
 from flask_login import login_required
 from app.utils.decoradores import rol_requerido

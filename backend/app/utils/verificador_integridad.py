@@ -1,4 +1,5 @@
-# 1. Conexión y modelos
+#backend\app\utils\verificador_integridad.py
+#cript de mantenimiento: Garantizar que todo actor del sistema (docente, estudiante, responsable, establecimiento) tenga un usuario asociado en usuarios_sistema, para poder iniciar sesión.
 from app import db
 from app.models.usuarios_sistema import UsuarioSistema
 from app.models.estudiantes import Estudiante
@@ -87,7 +88,7 @@ def verificar_y_crear_usuarios():
     else:
         print("✅ Todos los usuarios están correctamente asociados.")
 
-# app/verificador_integridad.py
+
 if __name__ == "__main__":
     from app import create_app
     app = create_app()

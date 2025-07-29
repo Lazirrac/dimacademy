@@ -1,3 +1,4 @@
+#backend\crearbd.py
 from app import create_app, db, bcrypt
 from app.models import (
     UsuarioSistema,
