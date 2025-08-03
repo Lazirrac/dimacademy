@@ -7,7 +7,36 @@ const EstablecimientoDashboard = () => {
 
   return (
     <DashboardLayout title="Panel del Establecimiento">
-      <p>Bienvenido/a al panel de {usuario?.rol?.toLowerCase()} de DIM Academy.</p>
+      <div>
+        <p>
+          Bienvenido/a al panel de{" "}
+          <span>{usuario?.rol || "usuario"}</span> de DIM Academy.
+        </p>
+
+        {usuario?.email && (
+          <p>
+            Sesión iniciada como: <span>{usuario.email}</span>
+          </p>
+        )}
+
+        {/* 📊 Panel de métricas del establecimiento */}
+        <div>
+          <div>
+            <h3>Total de docentes</h3>
+            <p>--</p>
+          </div>
+
+          <div>
+            <h3>Total de estudiantes</h3>
+            <p>--</p>
+          </div>
+
+          <div>
+            <h3>Responsables registrados</h3>
+            <p>--</p>
+          </div>
+        </div>
+      </div>
     </DashboardLayout>
   );
 };

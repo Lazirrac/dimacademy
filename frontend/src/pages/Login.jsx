@@ -1,10 +1,16 @@
-//frontend\src\pages\Login.jsx
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 import { loginRequest } from "../services/authService";
+import LoginLayout from "../components/layout/LoginLayout";
+import InputField from "../components/ui/InputField"
+import ErrorMessage from "../components/ui/ErrorMessage";
+import Button from "../components/ui/Button";
 
-function Login() {
+export default function Login() {
     const { login } = useAuth();
+    const navigate = useNavigate();
+
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
@@ -18,45 +24,43 @@ function Login() {
         try {
         const data = await loginRequest(email, password);
         login(data);
+        navigate(`/${data.rol}`);
         } catch (error) {
-        setErrorMsg(error.message);
+        setErrorMsg(error.message || "Error al iniciar sesión");
         } finally {
         setLoading(false);
         }
     };
 
     return (
-        <div className="login-container">
-        <form onSubmit={handleLogin}>
-            <h2>Iniciar sesión</h2>
-
-            <label htmlFor="email">Correo electrónico</label>
-            <input
+        <LoginLayout>
+        <form onSubmit={handleLogin} className="space-y-6">
+            <InputField
             id="email"
+            label="Correo electrónico"
             type="email"
-            placeholder="correo@ejemplo.com"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            required
+            placeholder=""
+            error={errorMsg.includes("correo") ? errorMsg : ""}
             />
 
-            <label htmlFor="password">Contraseña</label>
-            <input
+            <InputField
             id="password"
+            label="Contraseña"
             type="password"
-            placeholder="••••••••"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            required
+            placeholder=""
+            error={errorMsg.includes("correo") ? errorMsg : ""}
             />
 
-            {errorMsg && <p className="error">{errorMsg}</p>}
-            <button type="submit" disabled={loading}>
+            {errorMsg && <ErrorMessage message={errorMsg} />}
+
+            <Button disabled={loading}>
             {loading ? "Ingresando..." : "Ingresar"}
-            </button>
+            </Button>
         </form>
-        </div>
+        </LoginLayout>
     );
 }
-
-export default Login;

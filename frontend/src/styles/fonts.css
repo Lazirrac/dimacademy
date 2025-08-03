@@ -1,0 +1,15 @@
+/* frontend\src\styles\components.css*/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'Saira';
+    src: url('/fonts/Saira-Regular.woff2') format('woff2');
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'Rubik';
+    src: url('/fonts/Rubik-Regular.woff2') format('woff2');
+    font-weight: 400;
+}

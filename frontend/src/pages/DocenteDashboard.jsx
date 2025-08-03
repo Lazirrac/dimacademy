@@ -7,7 +7,31 @@ const DocenteDashboard = () => {
 
   return (
     <DashboardLayout title="Panel del Docente">
-      <p>Bienvenido/a al panel de {usuario?.rol?.toLowerCase()} de DIM Academy.</p>
+      <div>
+        <p>
+          Bienvenido/a al panel de{" "}
+          <span>{usuario?.rol || "usuario"}</span> de DIM Academy.
+        </p>
+
+        {usuario?.email && (
+          <p>
+            Sesión iniciada como: <span>{usuario.email}</span>
+          </p>
+        )}
+
+        {/* 📘 Espacio para futuras métricas del docente */}
+        <div>
+          <div>
+            <h3>Total de estudiantes asignados</h3>
+            <p>--</p>
+          </div>
+
+          <div>
+            <h3>Actividades registradas</h3>
+            <p>--</p>
+          </div>
+        </div>
+      </div>
     </DashboardLayout>
   );
 };
