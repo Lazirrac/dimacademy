@@ -21,3 +21,26 @@
 html {
     font-family: 'Saira', sans-serif;
 }
+
+.illustration:hover { transform: scale(1.02); transition: transform .3s ease; }
+
+/* index.css (o globals.css) */
+
+.underline-anim {
+    position: relative;
+}
+.underline-anim::after {
+    content: "";
+    position: absolute;
+    bottom: 0.25rem;   /* distancia desde la base del elemento */
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: currentColor;  /* heredará el color del texto */
+    transition: width 0.3s ease, left 0.3s ease;
+}
+.underline-anim:hover::after,
+.underline-anim:focus::after {
+    left: 0;
+    width: 100%;
+}

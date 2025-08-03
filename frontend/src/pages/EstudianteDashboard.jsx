@@ -1,5 +1,5 @@
 // frontend/src/pages/EstudianteDashboard.jsx
-import DashboardLayout from "../components/DashboardLayout";
+import DashboardLayout from "../components/layout/DashboardLayout";
 import { useAuth } from "../hooks/useAuth";
 
 const EstudianteDashboard = () => {

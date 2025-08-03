@@ -1,5 +1,5 @@
 // frontend/src/pages/SistemaDashboard.jsx
-import DashboardLayout from "../components/DashboardLayout";
+import DashboardLayout from "../components/layout/DashboardLayout";
 import { useAuth } from "../hooks/useAuth";
 
 const SistemaDashboard = () => {

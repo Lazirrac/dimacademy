@@ -1,19 +1,29 @@
-//frontend\src\components\ui\Button.jsx
-export default function Button({ children, disabled, type = "submit" }) {
-    return (
-        <button
-        type={type}
-        disabled={disabled}
-        className={`w-full py-2 px-4 rounded-xl font-semibold tracking-wide transition duration-300 ease-in-out transform
-            ${
-            disabled
-                ? "bg-gray-400 cursor-not-allowed text-white"
-                : "bg-primary text-white hover:bg-primaryDark hover:scale-[1.015] focus:ring-2 focus:ring-primaryDark dark:focus:ring-primary"
-            }
-            shadow-md focus:outline-none focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-[#0f172a]
-        `}
-        >
-        {children}
-        </button>
-    );
+// frontend\src\components\ui\Button.jsx
+export default function Button({
+  children,
+  disabled,
+  type = "submit",
+  ...props
+}) {
+  return (
+    <button
+      type={type}
+      disabled={disabled}
+      {...props}
+      className={`
+        w-full py-3 px-4
+        rounded-xl font-semibold tracking-wide
+        bg-primary text-white
+        transition-transform duration-200 ease-in-out transform
+        shadow-md focus:outline-none
+        ${
+          disabled
+            ? "bg-muted cursor-not-allowed opacity-50"
+            : "hover:bg-primary-light hover:scale-105 focus:ring-2 focus:ring-primary focus:ring-offset-1 focus:ring-offset-background-light dark:focus:ring-offset-background-dark"
+        }
+      `}
+    >
+      {children}
+    </button>
+  );
 }

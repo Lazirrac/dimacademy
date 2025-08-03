@@ -1,5 +1,5 @@
 // frontend/src/pages/ResponsableDashboard.jsx
-import DashboardLayout from "../components/DashboardLayout";
+import DashboardLayout from "../components/layout/DashboardLayout";
 import { useAuth } from "../hooks/useAuth";
 
 const ResponsableDashboard = () => {
