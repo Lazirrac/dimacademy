@@ -21,7 +21,7 @@ export default function Header() {
             ${menuOpen ? "pb-6" : "pb-3"}
             `}
         >
-            <div className="max-w-screen-xl mx-auto px-6 md:px-12 grid grid-cols-2 items-center">
+            <div className="max-w-screen-xl mx-auto px-6 md:px-12 grid grid-cols-2 md:grid-cols-3 items-center">
             {/* ◀️ Enlaces (solo desktop) */}
             <nav className="hidden md:flex gap-6">
                 <NavLink to="/">Inicio</NavLink>
