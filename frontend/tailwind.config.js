@@ -1,6 +1,4 @@
 /*frontend\tailwind.config.js*/
-
-
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: 'class',
@@ -21,9 +19,10 @@ export default {
       colors: {
         primary:        '#117F74',
         'primary-light':'#1ABC9C',
-        'primary-dark': '#0E6655',
+        'primary-dark': '#117F74',
         accent:         '#FFD166',
         muted:          '#6B7280',
+        'muted-dark':   '#9CA3AF',
         background: {
           light: '#F9FAFB',
           dark:  '#0A0F1E',
@@ -64,6 +63,7 @@ export default {
         'fade-in':  'fadeIn 0.6s ease-out forwards',
         'slide-in': 'slideIn 0.4s ease-out forwards',
       },
+
     },
   },
   plugins: [],

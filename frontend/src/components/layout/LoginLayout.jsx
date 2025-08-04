@@ -40,7 +40,7 @@ export default function LoginLayout({ children }) {
                         Bienvenido a <br /> DIM Academy
                     </h2>
                     <p className="
-                        mt-4 text-sm md:text-base font-body
+                        mt-4 text-sm md:text-base font-heading
                         text-white/90 max-w-md leading-relaxed
                     ">
                         La plataforma que conecta la educación con la tecnología

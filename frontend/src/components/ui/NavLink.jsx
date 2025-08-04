@@ -14,6 +14,7 @@ export default function NavLink({ to, children, className = '', ...props }) {
             font-semibold
             transition duration-300 ease-in-out
             hover:text-primary hover:-translate-y-1 hover:scale-105
+            animate-slide-in
             ${className}
         `}
         whileTap={{ scale: 0.95 }}

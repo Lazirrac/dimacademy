@@ -18,10 +18,16 @@ export default function Header() {
             bg-white/80 dark:bg-[#0f172a]/80 backdrop-blur-lg
             border-b border-gray-200 dark:border-gray-700
             transition-all duration-300 font-sans
-            ${menuOpen ? "pb-6" : "pb-3"}
+            ${menuOpen ? "pb-6" : "pb-0"}
             `}
         >
-            <div className="max-w-screen-xl mx-auto px-6 md:px-12 grid grid-cols-2 md:grid-cols-3 items-center">
+            <div className="
+            max-w-screen-xl mx-auto px-6 md:px-12
+            grid
+            grid-cols-[1fr_auto]          /* móvil: primera columna fr, segunda auto */
+            md:grid-cols-[auto_1fr_auto]  /* desktop: nav auto | logo 1fr | acciones auto */
+            items-center
+            ">
             {/* ◀️ Enlaces (solo desktop) */}
             <nav className="hidden md:flex gap-6">
                 <NavLink to="/">Inicio</NavLink>
@@ -31,10 +37,10 @@ export default function Header() {
             {/* 🔶 Logo centrado */}
             <Link
                 to="/"
-                className="flex items-center justify-self-center py-2"
+                className="flex items-center justify-self-center py-2 animate-slide-in"
             >
-                <Logo className="w-10 md:w-12 drop-shadow-md" />
-                <span className="ml-2 font-heading font-bold tracking-wide text-primary-dark dark:text-primary">
+                <Logo className="w-14 md:w-20 drop-shadow-md" />
+                <span className="text-2xl ml-2 font-heading font-bold tracking-wide text-primary-dark dark:text-primary">
                 DIM Academy
                 </span>
             </Link>
@@ -49,31 +55,39 @@ export default function Header() {
                     className="
                     inline-block relative underline-anim
                     bg-primary text-white font-bold
-                    py-1.5 px-4 rounded-lg shadow-md
+                    py-1.5 px-4 rounded-lg shadow-md animate-slide-in
                     "
                 >
                     Regístrate
                 </Link>
                 <ThemeToggle />
                 </div>
-                {/* hamburguesa móvil */}
+                {/* hamburguesa móvil (ahora w-6 h-6) */}
                 <button
-                className="md:hidden self-center flex items-center justify-center w-8 h-8"
+                className="md:hidden self-center flex items-center justify-center w-6 h-6"
                 onClick={() => setMenuOpen(!menuOpen)}
                 aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
                 >
                 {menuOpen ? (
-                    <span className="text-2xl leading-none">&times;</span>
+                    <span className="text-xl leading-none">&times;</span>
                 ) : (
-                    <svg
-                    className="w-6 h-6 text-text-light dark:text-text-dark"
-                    fill="none" stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                        d="M4 8h16M4 16h16"
-                    />
-                    </svg>
+                        <svg
+                        className="w-full h-full text-text-light dark:text-text-dark"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        >
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={3}  
+                            d="
+                            M4 6h16               
+                            M4 12h16            
+                            M4 18h16   
+                            "
+                        />
+                        </svg>
                 )}
                 </button>
             </div>

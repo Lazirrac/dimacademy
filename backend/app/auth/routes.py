@@ -4,7 +4,7 @@ from flask_login import login_user, logout_user, login_required
 from app.models.usuarios_sistema import UsuarioSistema
 from app import bcrypt
 
-auth_bp = Blueprint("auth", __name__, url_prefix="/auth")
+auth_bp = Blueprint("auth", __name__, url_prefix="/api/auth")
 
 @auth_bp.route("/login", methods=["POST"])
 def login():

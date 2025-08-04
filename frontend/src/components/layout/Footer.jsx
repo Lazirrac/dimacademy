@@ -1,7 +1,7 @@
 //frontend\src\components\layout\Footer.jsx
 export default function Footer() {
     return (
-        <footer className="w-full bg-background-light/20 dark:bg-background-dark/90">
+        <footer className="w-full bg-background-light/20 dark:bg-background-dark/90 animate-slide-in">
             <div className="
             max-w-screen-xl mx-auto
             px-4 py-6 md:px-8

@@ -16,7 +16,7 @@ export default function InputField({
         "rounded-xl border",
         "bg-surface-light dark:bg-surface-dark",
         "text-sm text-text-light dark:text-text-dark",
-        "placeholder-muted dark:placeholder-muted",
+        "placeholder-muted dark:placeholder-muted-dark",
         "shadow-sm",
         "focus:outline-none transition-all duration-200",
     ].join(" ");

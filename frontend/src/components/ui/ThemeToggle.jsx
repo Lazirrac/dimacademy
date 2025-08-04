@@ -19,13 +19,13 @@ export default function ThemeToggle() {
         <Motion.button
         onClick={toggleTheme}
         aria-label="Cambiar tema"
-        className="relative flex items-center w-16 h-8 p-1 rounded-full focus:outline-none"
+        className="relative flex items-center w-16 h-8 p-1 rounded-full focus:outline-none animate-slide-in"
         initial={false}
         animate={{ backgroundColor: isLight ? "#E5E7EB" : "#374151" }}
         transition={{ type: "spring", stiffness: 300, damping: 30 }}
         >
         <Motion.span
-            className="absolute top-1 left-1 w-6 h-6 rounded-full bg-white shadow-md"
+            className="absolute top-1 left-1 w-6 h-6 rounded-full bg-white shadow-md "
             animate={{ x: isLight ? 0 : travel }}
             transition={{ type: "spring", stiffness: 200, damping: 20 }}
         />

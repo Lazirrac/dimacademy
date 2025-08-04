@@ -1,4 +1,5 @@
-# backend\app\__init__.py
+# backend/app/__init__.py
+
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
@@ -23,10 +24,14 @@ def create_app():
     else:
         app.config.from_object(DevelopmentConfig)
 
-
-
-    # 🔗 CORS para frontend en React (localhost)
-    CORS(app, origins=[app.config.get("FRONTEND_ORIGIN")], supports_credentials=True)
+    # 🔗 Configurar CORS para todas las rutas /api/*
+    CORS(
+        app,
+        resources={r"/api/*": {"origins": app.config.get("FRONTEND_ORIGIN")}},
+        supports_credentials=True,
+        methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+        allow_headers=["Content-Type", "Authorization", "X-Requested-With"]
+    )
 
     # 🧩 Inicializar extensiones
     db.init_app(app)

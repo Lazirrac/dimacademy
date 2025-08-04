@@ -2,45 +2,72 @@
 
 @tailwind base;
 @tailwind components;
+
+/* ——— Autofill Reset dentro de @layer base ——— */
+@layer base {
+  /* Claro */
+  input:-webkit-autofill,
+  textarea:-webkit-autofill,
+  select:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  textarea:-webkit-autofill:hover,
+  select:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill:focus,
+  select:-webkit-autofill:focus {
+    /* fondo de surface.light (#FFFFFF) */
+    -webkit-box-shadow: inset 0 0 0px 1000px #FFFFFF !important;
+    box-shadow: inset 0 0 0px 1000px #FFFFFF !important;
+    /* texto de text.light (#1F2937) */
+    -webkit-text-fill-color: #1F2937 !important;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+
+  /* Oscuro */
+  .dark input:-webkit-autofill,
+  .dark textarea:-webkit-autofill,
+  .dark select:-webkit-autofill,
+  .dark input:-webkit-autofill:hover,
+  .dark textarea:-webkit-autofill:hover,
+  .dark select:-webkit-autofill:hover,
+  .dark input:-webkit-autofill:focus,
+  .dark textarea:-webkit-autofill:focus,
+  .dark select:-webkit-autofill:focus {
+    /* fondo de surface.dark (#131926) */
+    -webkit-box-shadow: inset 0 0 0px 1000px #131926 !important;
+    box-shadow: inset 0 0 0px 1000px #131926 !important;
+    /* texto de text.dark (#E5E7EB) */
+    -webkit-text-fill-color: #E5E7EB !important;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+
+  /* iOS Safari bugfix primera línea */
+  input:-webkit-autofill::first-line {
+    -webkit-text-fill-color: #1F2937 !important;
+  }
+  .dark input:-webkit-autofill::first-line {
+    -webkit-text-fill-color: #E5E7EB !important;
+  }
+}
+
 @tailwind utilities;
 
-
+/* ——— Tipografías ——— */
 @font-face {
-    font-family: 'Saira';
-    src: url('assets/fonts/Saira/Saira-SemiBold.woff2') format('woff2');
-    font-weight: 400;
-    font-display: swap;
+  font-family: 'Saira';
+  src: url('assets/fonts/Saira/Saira-SemiBold.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
 }
 @font-face {
-    font-family: 'Saira';
-    src: url('assets/fonts/Saira/Saira-Bold.woff2') format('woff2');
-    font-weight: 700;
-    font-display: swap;
+  font-family: 'Saira';
+  src: url('assets/fonts/Saira/Saira-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
 }
 
-html {
-    font-family: 'Saira', sans-serif;
-}
-
-.illustration:hover { transform: scale(1.02); transition: transform .3s ease; }
-
-/* index.css (o globals.css) */
-
-.underline-anim {
-    position: relative;
-}
-.underline-anim::after {
-    content: "";
-    position: absolute;
-    bottom: 0.25rem;   /* distancia desde la base del elemento */
-    left: 50%;
-    width: 0;
-    height: 2px;
-    background-color: currentColor;  /* heredará el color del texto */
-    transition: width 0.3s ease, left 0.3s ease;
-}
-.underline-anim:hover::after,
-.underline-anim:focus::after {
-    left: 0;
-    width: 100%;
+/* ——— Hover suave para la ilustración ——— */
+.illustration:hover {
+  transform: scale(1.02);
+  transition: transform .3s ease;
 }
