@@ -1,8 +1,8 @@
 //frontend\src\components\forms\LoginForm.jsx
 import React from "react";
-import InputField from "../ui/InputField";
-import ErrorMessage from "../ui/ErrorMessage";
-import Button from "../ui/Button";
+import InputField from "../../ui/InputField";
+import ErrorMessage from "../../ui/ErrorMessage";
+import Button from "../../ui/Button";
 
 export default function LoginForm({
     email, onEmailChange,

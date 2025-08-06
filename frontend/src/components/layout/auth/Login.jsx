@@ -1,10 +1,10 @@
 //frontend\src\pages\Login.jsx
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../hooks/useAuth";
-import { loginRequest } from "../services/authService";
-import LoginLayout from "../components/layout/LoginLayout";
-import LoginForm from "../components/forms/LoginForm";
+import { useAuth } from "./services/useAuth";
+import { loginRequest } from "./services/authService";
+import LoginLayout from "./LoginLayout";
+import LoginForm from "./LoginForm";
 
 export default function Login() {
     const { login } = useAuth();

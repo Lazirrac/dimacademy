@@ -45,7 +45,7 @@ export default function Header() {
                 "
             >
                 DIM Academy
-                <span className="text-xs font-light block">SISTEMAS</span>
+                <span className="text-xs font-light block text-end">SISTEMAS</span>
             </span>
             </Link>
 

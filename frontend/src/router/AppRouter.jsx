@@ -1,13 +1,13 @@
 // frontend/src/router/AppRouter.jsx
 import { Routes, Route, Navigate } from "react-router-dom";
-import { useAuth } from "../hooks/useAuth";
-import Login from "../pages/Login";
-import Admin from "../pages/AdminDashboard";
-import Sistema from "../pages/SistemaDashboard";
-import Establecimiento from "../pages/EstablecimientoDashboard";
-import Docente from "../pages/DocenteDashboard";
-import Estudiante from "../pages/EstudianteDashboard";
-import Responsable from "../pages/ResponsableDashboard";
+import { useAuth } from "../components/layout/auth/services/useAuth";
+import Login from "../components/layout/auth/Login";
+import Admin from "../components/layout/pages/SistemaDashboard";
+import Sistema from "../components/layout/pages/SistemaDashboard";
+import Establecimiento from "../components/layout/pages/EstablecimientoDashboard";
+import Docente from "../components/layout/pages/DocenteDashboard";
+import Estudiante from "../components/layout/pages/EstudianteDashboard";
+import Responsable from "../components/layout/pages/ResponsableDashboard";
 
 /**
  * AppRouter – Enrutador principal de la aplicación

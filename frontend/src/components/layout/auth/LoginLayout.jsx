@@ -1,10 +1,8 @@
 // frontend/src/components/layout/LoginLayout.jsx
-// frontend/src/components/layout/LoginLayout.jsx
-
 import { motion } from 'framer-motion';
-import Header from './Header';
-import Footer from './Footer';
-import Illustration from '../ui/Illustration';
+import Header from '../Header';
+import Footer from '../Footer';
+import Illustration from '../../ui/Illustration';
 
 const MotionDiv = motion.div;
 

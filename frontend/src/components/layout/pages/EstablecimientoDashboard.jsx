@@ -1,6 +1,6 @@
 // frontend/src/pages/EstablecimientoDashboard.jsx
-import DashboardLayout from "../components/layout/DashboardLayout";
-import { useAuth } from "../hooks/useAuth";
+import DashboardLayout from "../DashboardLayout";
+import { useAuth } from "../auth/services/useAuth";
 
 const EstablecimientoDashboard = () => {
   const { usuario } = useAuth();
