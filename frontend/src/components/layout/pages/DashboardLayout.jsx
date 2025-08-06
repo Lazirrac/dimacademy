@@ -1,6 +1,6 @@
 // frontend/src/components/DashboardLayout.jsx
 import React from "react";
-import { useAuth } from "../layout/auth/services/useAuth";
+import { useAuth } from "../auth/services/useAuth";
 
 const DashboardLayout = ({ title, children }) => {
     const { logout } = useAuth();
