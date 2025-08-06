@@ -9,18 +9,24 @@ export default function NavLink({ to, children, className = '', ...props }) {
     return (
         <MotionLink
         to={to}
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4, ease: 'easeOut' }}
+        whileTap={{ scale: 0.95 }}
         className={`
-            text-text-light dark:text-text-dark
-            font-semibold
-            transition duration-300 ease-in-out
-            hover:text-primary hover:-translate-y-1 hover:scale-105
-            animate-slide-in
+            block  /* para que el span interno pueda transformarse */
             ${className}
         `}
-        whileTap={{ scale: 0.95 }}
         {...props}
         >
-        {children}
+        {/* Solo este span reacciona al hover y transición */}
+        <span className="
+            inline-block
+            transition-transform duration-300 ease-in-out
+            hover:-translate-y-1 hover:scale-110
+        ">
+            {children}
+        </span>
         </MotionLink>
     );
 }
