@@ -1,4 +1,4 @@
-// frontend/src/components/layout/LoginLayout.jsx
+//frontend\src\components\layout\auth\LoginLayout.jsx
 import { motion } from 'framer-motion';
 import Header from '../Header';
 import Footer from '../Footer';
@@ -38,9 +38,6 @@ export default function LoginLayout({ children }) {
                 transition={{ duration: 0.5 }}
                 className="w-full max-w-sm md:max-w-md bg-surface-light dark:bg-surface-dark bg-opacity-90 dark:bg-opacity-90 backdrop-blur-lg rounded-2xl shadow-card-light dark:shadow-card-dark p-6 md:p-10 border border-gray-200 dark:border-gray-700"
             >
-                <h3 className="text-2xl md:text-3xl font-heading font-semibold text-center mb-6">
-                Iniciar sesión
-                </h3>
                 {children}
             </MotionDiv>
             </main>
