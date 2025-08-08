@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import NavLink from "../ui/NavLink";
-import Logo from "../ui/Logoo";
+import LogoBrand from "../ui/LogoBrand";
 import ThemeToggle from "../ui/ThemeToggle";
 
 export default function Header() {
@@ -32,22 +32,10 @@ export default function Header() {
             <NavLink to="/contacto">Contacto</NavLink>
             </nav>
 
-            {/* 🔶 Logo centrado */}
-            <Link
-            to="/"
-            className="flex items-center justify-self-center py-2 animate-slide-in"
-            >
-            <Logo className="w-14 md:w-20 drop-shadow-md" />
-            <span
-                className="
-                text-2xl ml-2 font-heading font-bold tracking-wide
-                text-primary-dark dark:text-primary
-                "
-            >
-                DIM Academy
-                <span className="text-xs font-light block text-end">SISTEMAS</span>
-            </span>
-            </Link>
+            <LogoBrand>
+                
+            </LogoBrand>
+
 
             {/* ▶️ Acciones + hamburguesa */}
             <div className="flex items-center justify-end gap-4">

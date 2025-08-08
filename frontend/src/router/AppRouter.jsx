@@ -2,7 +2,7 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useAuth } from "../components/layout/auth/services/useAuth";
 import Login from "../components/layout/auth/Login";
-import Admin from "../components/layout/pages/SistemaDashboard";
+import Admin from "../components/layout/dashboards/admin/AdminDashboard";
 import Sistema from "../components/layout/pages/SistemaDashboard";
 import Establecimiento from "../components/layout/pages/EstablecimientoDashboard";
 import Docente from "../components/layout/pages/DocenteDashboard";
